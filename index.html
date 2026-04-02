@@ -7,9 +7,9 @@
 <style>
 
 :root{
---bg1:#0b3d2e; /* agriculture green */
---bg2:#134e4a; /* sustainability teal */
---bg3:#1e3a8a; /* analytics blue */
+--bg1:#0b3d2e;
+--bg2:#134e4a;
+--bg3:#1e3a8a;
 --text:white;
 --card:rgba(255,255,255,0.07);
 --accent:#22c55e;
@@ -27,68 +27,61 @@
 body{
 font-family:Poppins;
 margin:0;
+display:flex;
 background:linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg3));
 color:var(--text);
-transition:0.4s;
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
+.sidebar{
+width:220px;
+min-height:100vh;
+background:rgba(0,0,0,0.25);
+padding:30px 20px;
+position:fixed;
 }
 
-h1{font-size:42px;margin-bottom:5px}
-.subtitle{opacity:0.85;margin-bottom:40px}
-.section{margin-top:60px}
+.sidebar h2{
+font-size:18px;
+margin-bottom:20px;
+}
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
+.sidebar a{
+display:block;
+margin:10px 0;
+color:white;
+text-decoration:none;
+opacity:0.85;
+}
+
+.sidebar a:hover{opacity:1;color:var(--accent)}
+
+.main{
+margin-left:240px;
+padding:40px;
+max-width:1000px;
 }
 
 .card{
 background:var(--card);
 padding:25px;
 border-radius:16px;
-backdrop-filter:blur(10px);
-transition:0.3s;
-cursor:pointer;
-border:1px solid rgba(255,255,255,0.08);
+margin-top:20px;
 }
 
-.card:hover{
-transform:translateY(-8px) scale(1.02);
-}
-
-.profile{
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-gap:30px;
-}
-
-.profile-img{
-width:160px;
-height:160px;
-border-radius:50%;
-background:var(--card);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .project-img{
-height:140px;
-border-radius:10px;
+height:120px;
 background:var(--card);
-margin-bottom:15px;
+border-radius:10px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:13px;
+margin-bottom:10px;
 }
 
 button{
@@ -101,7 +94,7 @@ background:var(--card);
 color:var(--text);
 }
 
-button:hover{background:var(--accent);color:white}
+button:hover{background:var(--accent)}
 
 .toggle{
 position:fixed;
@@ -111,64 +104,62 @@ background:var(--accent);
 color:white;
 }
 
-a{color:var(--accent);text-decoration:none}
-
-.footer{margin-top:60px;opacity:0.7;font-size:14px}
-
 </style>
 </head>
 
 <body>
 
+<div class="sidebar">
+<h2>Portfolio</h2>
+
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#blog">Blog</a>
+<a href="https://github.com/benjaminmawulolo">GitHub</a>
+<a href="https://www.kaggle.com/">Kaggle Project</a>
+
+</div>
+
 <button class="toggle" onclick="toggleMode()">theme</button>
 
-<div class="container">
+<div class="main">
 
-<div class="profile">
-<div class="profile-img">Photo</div>
-<div>
 <h1>Benjamin Yeboah</h1>
-<p class="subtitle">Communications • Data Analytics • AI for Agriculture & Development</p>
-</div>
-</div>
+<p>Communications • Data Analytics • AI for Agriculture</p>
 
-<div class="section">
-<h2>About</h2>
+<h2 id="about">About</h2>
 <div class="card">
-I work at the intersection of communication, data and artificial intelligence to improve agriculture and development outcomes. My background in Agricultural Biotechnology shapes my interest in data-driven decision making for food systems, education and innovation.
-</div>
+I combine communication, analytics and AI to support innovation in agriculture and development.
 </div>
 
-<div class="section">
-<h2>Skills</h2>
+<h2 id="skills">Skills</h2>
 <div class="grid">
 
 <div class="card">
 <h3>Communications</h3>
 <p>Social media strategy</p>
-<p>Digital storytelling</p>
 <p>Content creation</p>
+<p>Storytelling</p>
 </div>
 
 <div class="card">
 <h3>Data Analytics</h3>
 <p>Python</p>
 <p>SQL</p>
-<p>Data visualization</p>
+<p>Visualization</p>
 </div>
 
 <div class="card">
-<h3>Artificial Intelligence</h3>
+<h3>AI</h3>
 <p>Prompt engineering</p>
-<p>AI tools for development</p>
-<p>Machine learning basics</p>
+<p>AI tools</p>
+<p>ML basics</p>
 </div>
 
 </div>
-</div>
 
-<div class="section">
-<h2>Projects</h2>
+<h2 id="projects">Projects</h2>
 
 <div>
 <button onclick="filterProjects('all')">All</button>
@@ -177,60 +168,47 @@ I work at the intersection of communication, data and artificial intelligence to
 <button onclick="filterProjects('communication')">Communication</button>
 </div>
 
-<div class="grid" id="projects">
+<div class="grid">
 
 <div class="card project data">
 <div class="project-img">image</div>
-<h3>Crop Recommendation ML</h3>
-<p>Predicting suitable crops from soil nutrients dataset.</p>
+<h3>Crop Recommendation</h3>
+<p>ML model predicting crops.</p>
+
+<a href="https://www.kaggle.com/">View Kaggle Project</a>
+
 </div>
 
 <div class="card project communication">
 <div class="project-img">image</div>
 <h3>Social Media Insights</h3>
-<p>Analyzing engagement performance.</p>
+<p>Analyzing engagement trends.</p>
 </div>
 
 <div class="card project ai">
 <div class="project-img">image</div>
-<h3>AI in Agriculture Research</h3>
-<p>Exploring AI opportunities in food systems.</p>
+<h3>AI Research</h3>
+<p>Exploring AI applications.</p>
 </div>
 
 </div>
-</div>
 
-<div class="section">
-<h2>Blog</h2>
+<h2 id="blog">Blog</h2>
 <div class="grid">
 
 <a href="blog-ai.html">
 <div class="card">
 <h3>AI for Agriculture</h3>
-<p>How AI supports smarter farming decisions.</p>
 </div>
 </a>
 
 <a href="blog-data.html">
 <div class="card">
 <h3>Data storytelling</h3>
-<p>Communicating insights effectively.</p>
 </div>
 </a>
 
 </div>
-</div>
-
-<div class="section">
-<h2>Contact</h2>
-<div class="card">
-<p>GitHub: github.com/benjaminmawulolo</p>
-<p>Kaggle: add link</p>
-<p>LinkedIn: add link</p>
-</div>
-</div>
-
-<div class="footer">Focused on agriculture, innovation and data for development.</div>
 
 </div>
 
