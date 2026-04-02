@@ -1,0 +1,86 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mail, Github, Linkedin } from "lucide-react";
+
+export default function Portfolio() {
+  return (
+    <div className="p-6 grid gap-6 max-w-5xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center"
+      >
+        <h1 className="text-4xl font-bold">Benjamin Yeboah</h1>
+        <p className="text-lg mt-2">
+          Communications | Social Media | Data Analytics | AI for Development
+        </p>
+      </motion.div>
+
+      <Card className="rounded-2xl shadow">
+        <CardContent className="p-4">
+          <h2 className="text-xl font-semibold">About Me</h2>
+          <p className="mt-2">
+            I am an e-learning and communications specialist with a background in Agricultural Biotechnology and growing expertise in Data Analytics and Artificial Intelligence.
+            I enjoy using data and digital tools to improve decision-making in agriculture, development, and education.
+          </p>
+        </CardContent>
+      </Card>
+
+      <div className="grid md:grid-cols-3 gap-4">
+        <Card className="rounded-2xl shadow">
+          <CardContent className="p-4">
+            <h2 className="font-semibold">Communications</h2>
+            <ul className="mt-2 text-sm list-disc pl-4">
+              <li>Social media strategy</li>
+              <li>Content creation</li>
+              <li>Digital storytelling</li>
+            </ul>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-2xl shadow">
+          <CardContent className="p-4">
+            <h2 className="font-semibold">Data Analytics</h2>
+            <ul className="mt-2 text-sm list-disc pl-4">
+              <li>Python (Pandas, Matplotlib)</li>
+              <li>SQL</li>
+              <li>Data visualization</li>
+            </ul>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-2xl shadow">
+          <CardContent className="p-4">
+            <h2 className="font-semibold">Artificial Intelligence</h2>
+            <ul className="mt-2 text-sm list-disc pl-4">
+              <li>AI for agriculture</li>
+              <li>Machine learning basics</li>
+              <li>Data-driven insights</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
+
+      <Card className="rounded-2xl shadow">
+        <CardContent className="p-4">
+          <h2 className="text-xl font-semibold">Projects</h2>
+          <ul className="mt-2 list-disc pl-4">
+            <li>Crop Recommendation Analysis using Soil Data</li>
+            <li>Social Media Analytics Dashboard</li>
+            <li> E-learning Engagement Analysis</li>
+          </ul>
+        </CardContent>
+      </Card>
+
+      <Card className="rounded-2xl shadow">
+        <CardContent className="p-4 flex gap-4">
+          <Button variant="outline"><Github /> GitHub</Button>
+          <Button variant="outline"><Linkedin /> LinkedIn</Button>
+          <Button variant="outline"><Mail /> Email</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
