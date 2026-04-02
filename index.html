@@ -2,153 +2,257 @@
 <html>
 <head>
 <title>Benjamin Yeboah Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
+:root{
+--bg1:#0f2027;
+--bg2:#203a43;
+--bg3:#2c5364;
+--text:white;
+--card:rgba(255,255,255,0.06);
+--accent:#4fd1c5;
+}
+
+.light{
+--bg1:#f5f7fa;
+--bg2:#e4ecf3;
+--bg3:#ffffff;
+--text:#222;
+--card:rgba(0,0,0,0.04);
+--accent:#2b6cb0;
+}
+
 body{
-font-family: Arial;
-margin:40px;
-background:#f5f5f5;
+font-family:Poppins;
+margin:0;
+background:linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg3));
+color:var(--text);
+transition:0.4s;
 }
 
 .container{
-max-width:900px;
+max-width:1100px;
 margin:auto;
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+padding:40px 20px;
 }
 
 h1{
-color:#2c7a7b;
+font-size:42px;
+margin-bottom:5px;
 }
 
-.section{
-margin-top:30px;
+.subtitle{opacity:0.8;margin-bottom:40px}
+
+.section{margin-top:60px}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 }
 
 .card{
-background:#fafafa;
-padding:15px;
-margin-top:10px;
-border-radius:8px;
+background:var(--card);
+padding:25px;
+border-radius:16px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+cursor:pointer;
+border:1px solid rgba(255,255,255,0.08);
 }
 
-a{
-color:#2c7a7b;
-text-decoration:none;
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+background:rgba(255,255,255,0.12);
 }
+
+.profile{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:30px;
+}
+
+.profile-img{
+width:160px;
+height:160px;
+border-radius:50%;
+background:var(--card);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+text-align:center;
+padding:10px;
+}
+
+.project-img{
+height:140px;
+border-radius:10px;
+background:var(--card);
+margin-bottom:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:13px;
+}
+
+.toggle{
+position:fixed;
+top:20px;
+right:20px;
+padding:10px 15px;
+border:none;
+border-radius:20px;
+background:var(--accent);
+color:white;
+cursor:pointer;
+}
+
+.progress{
+background:rgba(255,255,255,0.08);
+border-radius:20px;
+height:8px;
+margin-top:8px;
+overflow:hidden;
+}
+
+.bar{
+height:8px;
+background:var(--accent);
+width:0;
+transition:1.5s;
+}
+
+.blog-card{padding:20px}
+
+.footer{margin-top:60px;opacity:0.7;font-size:14px}
+
+a{color:var(--accent);text-decoration:none}
 
 </style>
-
 </head>
 
 <body>
 
+<button class="toggle" onclick="toggleMode()">Toggle mode</button>
+
 <div class="container">
 
+<div class="profile">
+<div class="profile-img">Profile Photo</div>
+<div>
 <h1>Benjamin Yeboah</h1>
-
-<p>
-Communications | Social Media | Data Analytics | AI for Development
-</p>
-
-<div class="section">
-
-<h2>About Me</h2>
-
-<p>
-I am an e-learning and communications specialist with a background in Agricultural Biotechnology and growing expertise in Data Analytics and Artificial Intelligence.
-
-I enjoy using data and digital tools to improve decision-making in agriculture, development, and education.
-</p>
-
+<p class="subtitle">Communications | Data Analytics | AI for Development</p>
+</div>
 </div>
 
 <div class="section">
+<h2>About</h2>
+<div class="card">
+E-learning and communications specialist with background in Agricultural Biotechnology and growing expertise in data analytics and AI for development.
+</div>
+</div>
 
+<div class="section">
 <h2>Skills</h2>
+<div class="grid">
 
 <div class="card">
+<h3>Communications</h3>
+<p>Social media strategy</p>
+<div class="progress"><div class="bar" style="width:90%"></div></div>
 
-<b>Communications</b>
+<p>Content creation</p>
+<div class="progress"><div class="bar" style="width:85%"></div></div>
 
-<ul>
-<li>Social media strategy</li>
-<li>Content creation</li>
-<li>Digital storytelling</li>
-</ul>
-
+<p>Storytelling</p>
+<div class="progress"><div class="bar" style="width:80%"></div></div>
 </div>
 
 <div class="card">
+<h3>Data Analytics</h3>
+<p>Python</p>
+<div class="progress"><div class="bar" style="width:75%"></div></div>
 
-<b>Data Analytics</b>
+<p>SQL</p>
+<div class="progress"><div class="bar" style="width:80%"></div></div>
 
-<ul>
-<li>Python</li>
-<li>SQL</li>
-<li>Data visualization</li>
-</ul>
-
+<p>Visualization</p>
+<div class="progress"><div class="bar" style="width:78%"></div></div>
 </div>
 
 <div class="card">
+<h3>AI</h3>
+<p>Prompt engineering</p>
+<div class="progress"><div class="bar" style="width:82%"></div></div>
 
-<b>Artificial Intelligence</b>
+<p>AI tools</p>
+<div class="progress"><div class="bar" style="width:75%"></div></div>
 
-<ul>
-<li>AI for agriculture</li>
-<li>Machine learning basics</li>
-<li>Data-driven insights</li>
-</ul>
-
+<p>AI for agriculture</p>
+<div class="progress"><div class="bar" style="width:70%"></div></div>
 </div>
 
+</div>
 </div>
 
 <div class="section">
-
 <h2>Projects</h2>
+<div class="grid">
 
 <div class="card">
-
-<b>Crop Recommendation Analysis</b>
-
-<p>
-Using soil nutrients and climate data to recommend suitable crops.
-</p>
-
+<div class="project-img">Image</div>
+<h3>Crop Recommendation</h3>
+<p>Machine learning model recommending suitable crops.</p>
 </div>
 
+<div class="card">
+<div class="project-img">Image</div>
+<h3>Social Media Analytics</h3>
+<p>Insights on engagement and performance.</p>
+</div>
+
+</div>
 </div>
 
 <div class="section">
+<h2>Blog</h2>
+<div class="grid">
 
+<div class="card blog-card">
+<h3>AI in Agriculture</h3>
+<p>How AI can support farmers in decision making.</p>
+</div>
+
+<div class="card blog-card">
+<h3>Data storytelling</h3>
+<p>Turning insights into impactful communication.</p>
+</div>
+
+</div>
+</div>
+
+<div class="section">
 <h2>Contact</h2>
+<div class="card">
+<p>GitHub: github.com/benjaminmawulolo</p>
+<p>Kaggle: add link</p>
+<p>LinkedIn: add link</p>
+</div>
+</div>
 
-<p>
-
-GitHub:
-<a href="https://github.com/benjaminmawulolo">
-github.com/benjaminmawulolo
-</a>
-
-</p>
-
-<p>
-Kaggle:
-<a href="#">
-Add your Kaggle link here
-</a>
-
-</p>
+<div class="footer">Portfolio showcasing communications, analytics and AI skills.</div>
 
 </div>
 
-</div>
+<script>
+function toggleMode(){
+document.body.classList.toggle("light")
+}
+</script>
 
 </body>
-
 </html>
